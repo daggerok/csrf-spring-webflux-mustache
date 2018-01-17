@@ -1,3 +1,5 @@
+/* CSS Grid: begin */
+
 .grid-container {
   width: 100vw;
   height: 100vh;
@@ -14,10 +16,17 @@
   grid-area: grid-header;
 }
 
-.grid-mail-content {
+.grid-main-content {
   grid-area: grid-mail-content;
 }
 
 .grid-footer {
   grid-area: grid-footer;
+}
+
+/* CSS Grid: end */
+
+.transparent-radius-border {
+  border: none;
+  border-radius: 50%;
 }

@@ -46,6 +46,7 @@ public class UserRoutes {
 
     return route(GET("/api/v1/users/**"),
                  handlers::streamUsers)
+
         .andRoute(POST("/api/v1/users/**"),
                   handlers::saveUser)
         ;

@@ -1,5 +1,6 @@
 package daggerok.users;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -20,7 +21,8 @@ public class User implements Serializable {
 
   @Id String id;
 
-  String username, password;
+  String username;
+  @JsonIgnore String password;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   LocalDateTime lastModifiedAt;

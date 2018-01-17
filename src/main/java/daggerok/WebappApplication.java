@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.filter.reactive.HiddenHttpMethodFilter;
 import reactor.core.publisher.Flux;
 
-import static java.lang.String.format;
 import static java.time.LocalDateTime.now;
 
 @Slf4j
@@ -28,20 +28,17 @@ public class WebappApplication {
   }
 
   @Bean
-  InitializingBean initializingBean(final UserRepository users) {
+  InitializingBean initializingBean(final UserRepository users,
+                                    final PasswordEncoder encoder) { // 6
 
     return () -> users.deleteAll()
-                      .thenMany(v -> Flux.just(1, 2, 3)
-                                         .map(id -> new User().setUsername(identify(id, "username"))
-                                                              .setPassword(identify(id, "password"))
-                                                              .setLastModifiedAt(now()))
+                      .thenMany(v -> Flux.just("user", "admin")
+                                         .map(user -> new User().setUsername(user)
+                                                                .setPassword(encoder.encode(user)) // 7
+                                                                .setLastModifiedAt(now()))
                                          .flatMap(users::save)
-                                         .subscribe(u -> log.info("created {}", u)))
+                                         .subscribe(u -> log.info("created user: {}", u.getUsername())))
                       .subscribe();
-  }
-
-  private String identify(final Integer id, final String identifier) {
-    return format("%s-%d", identifier, id);
   }
 
   public static void main(String[] args) {
