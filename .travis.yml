@@ -1,0 +1,15 @@
+env:
+  global:
+    TERM=dumb
+language: java
+jdk:
+- openjdk8
+- oraclejdk8
+install: true
+script:
+- ./gradlew clean build
+- ./mvnw clean install
+cache:
+  directories:
+  - $HOME/.m2/
+  - $HOME/.gradle/

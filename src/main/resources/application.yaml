@@ -1,0 +1,14 @@
+spring:
+  output:
+    ansi:
+      enabled: always
+  data:
+    mongodb:
+      database: csrf
+      host: ${SPRING_DATA_MONGODB_HOST:127.0.0.1}
+  mvc:
+    favicon:
+      enabled: false
+  mustache:
+    expose-request-attributes: true
+    expose-spring-macro-helpers: true

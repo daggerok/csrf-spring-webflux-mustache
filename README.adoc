@@ -1,0 +1,27 @@
+= csrf-webflux-mustache image:https://travis-ci.org/daggerok/csrf-spring-webflux-mustache.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/csrf-spring-webflux-mustache"]
+
+TODO: for some reasons gradle building jar which is not working... (so use maven instead)
+
+This repository is contains example of usage:
+
+. spring-boot 2
+. spring-webflux
+. spring-security 5
+. reactive mongodb
+. csrf protection
+. mustache mvc
+
+.build
+----
+#don't know why, but jar built with gradle is not working...
+
+./mvnw
+
+open http://127.0.0.1
+# user / user
+# adin / admin
+
+http get :8080/api/v1/users
+http get --auth user:user :8080/api/v1/users
+http post --auth user:user :8080/api/v1/users username=ololo
+----
