@@ -1,6 +1,6 @@
 = csrf-webflux-mustache image:https://travis-ci.org/daggerok/csrf-spring-webflux-mustache.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/csrf-spring-webflux-mustache"]
 
-TODO: for some reasons gradle building jar which is not working... (so use maven instead)
+NOTE: for some reasons gradle building jar which is not working... (so use maven instead)
 
 This repository is contains example of usage:
 
@@ -25,3 +25,10 @@ http get :8080/api/v1/users
 http get --auth user:user :8080/api/v1/users
 http post --auth user:user :8080/api/v1/users username=ololo
 ----
+
+TODO:
+
+. pre-auth method security
+. mongo userDetailService
+. password encoder
+. oauth2
