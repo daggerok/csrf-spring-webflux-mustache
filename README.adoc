@@ -2,7 +2,7 @@
 
 NOTE: for some reasons gradle building jar which is not working... (so use maven instead)
 
-This repository is contains example of usage:
+This repository contains example project of usage:
 
 . spring-boot 2
 . spring-webflux
