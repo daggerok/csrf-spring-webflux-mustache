@@ -31,4 +31,6 @@ TODO:
 . pre-auth method security
 . mongo userDetailService
 . password encoder
-. oauth2
+. oauth2, spring-cloud
+. authorization-server, resource-server, jwt...
+
