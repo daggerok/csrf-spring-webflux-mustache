@@ -20,7 +20,9 @@ class CustomUserDetails extends User implements UserDetails {
   }
 
   @Override public Collection<? extends GrantedAuthority> getAuthorities() {
-    return AuthorityUtils.createAuthorityList("ROLE_USER");
+    return getUsername().contains("admin")
+        ? AuthorityUtils.createAuthorityList("ROLE_USER", "ROLE_ADMIN")
+        : AuthorityUtils.createAuthorityList("ROLE_USER");
   }
 
   @Override public boolean isAccountNonExpired() {

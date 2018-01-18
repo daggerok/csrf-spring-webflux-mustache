@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
 @Configuration
@@ -19,6 +18,8 @@ public class SecurityConfig {
 
     http
         .authorizeExchange()
+          .pathMatchers("/api/**")
+            .hasRole("ADMIN") // only admin can use rest API
           .pathMatchers("/favicon.ico", "/css/**", "/webjars/**")
             .permitAll()
           .anyExchange()
