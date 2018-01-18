@@ -17,7 +17,7 @@
 }
 
 .grid-main-content {
-  grid-area: grid-mail-content;
+  grid-area: grid-main-content;
 }
 
 .grid-footer {

@@ -6,9 +6,18 @@ jdk:
 - openjdk8
 - oraclejdk8
 install: true
+before_script:
+- sudo apt update -y || true
+- sudo apt -y install python-pip
+- sudo pip install httpie
+- source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
 script:
 - ./gradlew clean build
 - ./mvnw clean install
+- java -jar target/*.jar &
+- wait_for 8080
+- http -a user:user :8080/
+- stop_any 8080
 cache:
   directories:
   - $HOME/.m2/
