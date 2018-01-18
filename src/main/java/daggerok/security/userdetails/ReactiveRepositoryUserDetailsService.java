@@ -1,6 +1,6 @@
 package daggerok.security.userdetails;
 
-import daggerok.users.UserRepository;
+import daggerok.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;

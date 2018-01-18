@@ -1,6 +1,6 @@
 package daggerok.security;
 
-import daggerok.users.User;
+import daggerok.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.web.server.csrf.CsrfToken;

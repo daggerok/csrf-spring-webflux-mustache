@@ -1,7 +1,7 @@
 package daggerok;
 
-import daggerok.users.User;
-import daggerok.users.UserRepository;
+import daggerok.user.User;
+import daggerok.user.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
