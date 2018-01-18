@@ -31,6 +31,7 @@ backlog:
 . csrf protection, no op password encoder (done link:../../blob/csrf/src/main/java/daggerok/web/SecurityConfig.java[in csrf branch])
 . mongo userDetailService, standart password encoder (done link:../../tree/reactive-repository-user-details/[here])
 . share mongodb publisher, use project user authentication principal (done link:../../tree/application-authentication-user/[in that branch])
+. encode password (cpu costs) in separate thread (see https://github.com/daggerok/csrf-spring-webflux-mustache/blob/schedulers-parallel/src/main/java/daggerok/web/IndexPage.java[IndexPage.java])
 . fix deprecated password encoder (todo)
 . pre-auth method security (todo)
 . oauth2, spring-cloud (todo)

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.reactive.result.view.Rendering;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import static java.lang.String.format;
 import static java.time.LocalDateTime.now;
@@ -41,13 +42,17 @@ public class IndexPage {
   public Mono<String> post(final Mono<User> user,
                            @AuthenticationPrincipal final Mono<User> owner) {
 
-    return Flux.zip(owner, user)
+    return Flux.zip(owner.log("0-1"), user.log("0-2"))                                      .log("1")
                // ${owner.name}-${user.username}
-               .map(p -> format("%s-%s", p.getT1().getUsername(), p.getT2().getUsername()))
-               .map(r -> new User().setUsername(r))
-               .map(u -> u.setPassword(encoder.encode(u.getUsername())))
-               .map(u -> u.setLastModifiedAt(now()))
-               .flatMap(users::save)
-               .then(Mono.just("redirect:/"));
+               .map(p -> format("%s-%s", p.getT1().getUsername(), p.getT2().getUsername())) .log("2")
+               .map(r -> new User().setUsername(r))                                         .log("3")
+               .map(u -> u.setLastModifiedAt(now()))                                         .log("4")
+               // bound by cpu: calculate costs operation in a separate thread
+               .subscribeOn(Schedulers.parallel())                                          .log("5!")
+               .doOnNext(u -> u.setPassword(encoder.encode(u.getUsername())))               .log("6")
+               // done.
+               .flatMap(users::save)                                                         .log("7!")
+               .then(Mono.just("redirect:/"))                                               .log("8!!")
+        ;
   }
 }
