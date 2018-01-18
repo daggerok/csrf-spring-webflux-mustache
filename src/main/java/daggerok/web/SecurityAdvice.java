@@ -29,7 +29,7 @@ public class SecurityAdvice {
                                                   .put(DEFAULT_CSRF_ATTR_NAME, token));
   }
 
-  @ModelAttribute("currentUser")
+  @ModelAttribute("currentUser") // 1: replace `Principle` with project `User`
   Mono<User> currentUser(@AuthenticationPrincipal final Mono<User> currentUser) {
     return currentUser;
   }
