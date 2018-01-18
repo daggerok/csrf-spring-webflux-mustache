@@ -22,7 +22,7 @@
 </nav>
 
 <div class="grid-main-content">
-  <!--<div class="container">-->
+  <div class="container">
 
     <h5>
       <!-- 2: replace principle with project user domain model -->
@@ -55,12 +55,20 @@
       </form>
     </div>
 
+    <h6>maybe mine users</h6>
+    <ul>
+      {{#createdByMe}}
+        <li>{{#id}}{{id}}{{/id}} - {{#username}}{{username}}{{/username}}</li>
+      {{/createdByMe}}
+    </ul>
+
+    <h6>all users</h6>
     <ul>
       {{#users}}
         <li>{{id}} - {{username}}</li>
       {{/users}}
     </ul>
-  <!--</div>-->
+  </div>
 </div>
 
 <footer class="page-footer blue-grey lighten-1 grid-footer">

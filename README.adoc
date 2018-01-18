@@ -26,8 +26,9 @@ http --auth user:user post :8080/api/v1/users username=ololo
 # 403: CSRF Token has been associated to this client
 ----
 
-. csrf protection (done)
-. no op password encoder (done link:../../blob/csrf/src/main/java/daggerok/web/SecurityConfig.java[in csrf branch])
+backlog:
+
+. csrf protection, no op password encoder (done link:../../blob/csrf/src/main/java/daggerok/web/SecurityConfig.java[in csrf branch])
 . mongo userDetailService, standart password encoder (done link:../../tree/reactive-repository-user-details/[here])
 . use project user authentication principal (done link:../../tree/application-authentication-user/[in that branch])
 . fix deprecated password encoder (todo)
