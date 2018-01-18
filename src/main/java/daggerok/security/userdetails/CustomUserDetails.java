@@ -1,4 +1,4 @@
-package daggerok.web.config.userdetails;
+package daggerok.security.userdetails;
 
 import daggerok.users.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,9 +20,7 @@ class CustomUserDetails extends User implements UserDetails {
   }
 
   @Override public Collection<? extends GrantedAuthority> getAuthorities() {
-    return getUsername().contains("admin")
-        ? AuthorityUtils.createAuthorityList("ROLE_USER", "ROLE_ADMIN")
-        : AuthorityUtils.createAuthorityList("ROLE_USER");
+    return AuthorityUtils.createAuthorityList("ROLE_USER");
   }
 
   @Override public boolean isAccountNonExpired() {

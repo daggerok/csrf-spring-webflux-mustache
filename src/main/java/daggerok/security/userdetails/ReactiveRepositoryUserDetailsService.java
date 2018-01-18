@@ -1,4 +1,4 @@
-package daggerok.web.config.userdetails;
+package daggerok.security.userdetails;
 
 import daggerok.users.UserRepository;
 import lombok.RequiredArgsConstructor;

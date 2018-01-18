@@ -1,0 +1,21 @@
+{{>layout/start}}
+
+<body class="grid-container">
+
+{{>layout/nav}}
+
+<div class="grid-main-content">
+  <div class="container">
+
+    <h5>
+      hey, {{#currentUser}}{{currentUser.username}} ({{currentUser.id}}){{/currentUser}}!
+    </h5>
+
+    {{> models/user-profile}}
+
+  </div>
+</div>
+
+{{>layout/footer}}
+
+{{>layout/end}}

@@ -20,7 +20,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
   final UserRepository users;
 
-  @PreAuthorize("hasRole('USER')")
+  @PreAuthorize("hasRole('ROLE_USER')")
   public Mono<ServerResponse> streamUsers(final ServerRequest inore) {
 
     return ServerResponse.ok()
@@ -28,7 +28,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
                          .body(users.findAll(), User.class);
   }
 
-  @PreAuthorize("hasRole('ADMIN')")
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
   public Mono<ServerResponse> saveUser(final ServerRequest request) {
 
     return ServerResponse.ok()

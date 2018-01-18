@@ -1,4 +1,4 @@
-package daggerok.web;
+package daggerok.security;
 
 import daggerok.users.User;
 import lombok.extern.slf4j.Slf4j;
