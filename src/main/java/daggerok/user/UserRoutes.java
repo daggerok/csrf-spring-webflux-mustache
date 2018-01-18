@@ -1,4 +1,4 @@
-package daggerok.users;
+package daggerok.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,6 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
   final UserRepository users;
 
-  @PreAuthorize("hasRole('ROLE_USER')")
   public Mono<ServerResponse> streamUsers(final ServerRequest inore) {
 
     return ServerResponse.ok()

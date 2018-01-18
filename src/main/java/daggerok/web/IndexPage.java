@@ -1,7 +1,7 @@
 package daggerok.web;
 
-import daggerok.users.User;
-import daggerok.users.UserRepository;
+import daggerok.user.User;
+import daggerok.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

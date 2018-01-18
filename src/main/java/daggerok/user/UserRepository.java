@@ -1,4 +1,4 @@
-package daggerok.users;
+package daggerok.user;
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.data.repository.query.Param;

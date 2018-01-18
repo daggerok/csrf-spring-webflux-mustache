@@ -1,4 +1,4 @@
-package daggerok.users;
+package daggerok.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

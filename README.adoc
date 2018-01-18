@@ -1,7 +1,5 @@
 = reactive security image:https://travis-ci.org/daggerok/csrf-spring-webflux-mustache.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/csrf-spring-webflux-mustache"]
 
-NOTE: for some reasons gradle building jar which is not working... (so use maven instead)
-
 This repository is contains example of custom reactive repository user details + standard password encoder usage for project on top of:
 spring-boot 2, spring-webflux, spring-security 5, reactive mongodb and mustache template engine
 
@@ -28,11 +26,19 @@ backlog:
 . csrf protection, no op password encoder (done link:../../blob/csrf/src/main/java/daggerok/web/SecurityConfig.java[in csrf branch])
 . mongo userDetailService, standart password encoder (done link:../../tree/reactive-repository-user-details/[here])
 . share mongodb publisher, use project user authentication principal (done link:../../tree/application-authentication-user/[in that branch])
-. encode password (cpu costs) in separate thread (see https://github.com/daggerok/csrf-spring-webflux-mustache/blob/schedulers-parallel/src/main/java/daggerok/web/IndexPage.java[IndexPage.java])
-. fix deprecated password encoder for support passwords migrations (done https://github.com/daggerok/csrf-spring-webflux-mustache/blob/delegate-password-encoder/src/main/java/daggerok/web/config/SecurityConfig.java[SecurityConfig.java])
-. password-hash upgrade strategy on authentication  (done https://github.com/daggerok/csrf-spring-webflux-mustache/blob/password-upgrade-strategy/src/main/java/daggerok/web/config/passwordmigration/PasswordUpgradeStrategyOnAuthenticationService.java[PasswordUpgradeStrategyOnAuthenticationService.java])
-. pathMatches by role (done https://github.com/daggerok/csrf-spring-webflux-mustache/blob/path-matchers-role/src/main/java/daggerok/web/config/SecurityConfig.java[SecurityConfig.java])
-. pathMatches access authorization decision (done https://github.com/daggerok/csrf-spring-webflux-mustache/blob/path-matchers-authorization-decision/src/main/java/daggerok/web/config/SecurityConfig.java[SecurityConfig.java])
-. pre-auth method security (todo)
+. encode password (cpu costs) in separate thread (see link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/schedulers-parallel/src/main/java/daggerok/web/IndexPage.java[IndexPage.java])
+. fix deprecated password encoder for support passwords migrations (done link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/delegate-password-encoder/src/main/java/daggerok/web/config/SecurityConfig.java[SecurityConfig.java])
+. password-hash upgrade strategy on authentication  (done link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/password-upgrade-strategy/src/main/java/daggerok/web/config/passwordmigration/PasswordUpgradeStrategyOnAuthenticationService.java[here])
+. pathMatches by role (done link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/path-matchers-role/src/main/java/daggerok/web/config/SecurityConfig.java[SecurityConfig.java])
+. pathMatches access authorization decision (done link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/path-matchers-authorization-decision/src/main/java/daggerok/web/config/SecurityConfig.java[SecurityConfig.java]
+  and link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/path-matchers-authorization-decision/src/main/java/daggerok/web/security/SecurityConfig.java[SecurityConfig.java])
+. method security (see link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/methods-webflux-routes-security/src/main/java/daggerok/user/UserRepository.java[UserRepository.java]
+  and link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/methods-webflux-routes-security/src/main/java/daggerok/web/security/SecurityConfig.java[SecurityConfig.java])
+. webflux functional routes API security (see link:https://github.com/daggerok/csrf-spring-webflux-mustache/blob/methods-webflux-routes-security/src/main/java/daggerok/user/UserRoutes.java[UserRoutes.java])
 . oauth2, spring-cloud (todo)
 . authorization-server, resource-server, jwt... (todo)
+
+help resources:
+
+. link:http://mustache.github.io/mustache.5.html[mustache reference]
+. link:https://www.youtube.com/watch?v=EDO1zlyFq6I[Rob Winch talk]

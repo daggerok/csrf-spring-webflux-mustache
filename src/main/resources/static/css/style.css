@@ -30,3 +30,12 @@
   border: none;
   border-radius: 50%;
 }
+
+.grid-footer {
+  padding: 0;
+}
+
+.footer-copyright {
+  height: 100%;
+  text-align: center;
+}

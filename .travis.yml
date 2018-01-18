@@ -12,9 +12,19 @@ before_script:
 - sudo pip install httpie
 - source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
 script:
-- ./gradlew clean build
-- ./mvnw clean install
+# maven
+- ./mvnw
 - java -jar target/*.jar &
+- wait_for 8080
+- http -a user:user :8080/
+- http -a user:user :8080/api/vi/users
+- http -a admin:admin :8080/api/vi/users
+- http -a user:user :8080/profiles/admin
+- http -a admin:admin :8080/profiles/admin
+- stop_any 8080
+# gradle
+- ./gradlew
+- java -jar build/libs/*.jar &
 - wait_for 8080
 - http -a user:user :8080/
 - http -a user:user :8080/api/vi/users

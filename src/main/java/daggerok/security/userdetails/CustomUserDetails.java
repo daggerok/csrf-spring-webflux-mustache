@@ -1,6 +1,6 @@
 package daggerok.security.userdetails;
 
-import daggerok.users.User;
+import daggerok.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
