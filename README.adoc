@@ -28,8 +28,8 @@ http --auth user:user post :8080/api/v1/users username=ololo
 
 . csrf protection (done)
 . no op password encoder (done link:../../blob/csrf/src/main/java/daggerok/web/SecurityConfig.java[in csrf branch])
-. + mongo userDetailService, standardpassword encoder
-. - good password encoder
-. - pre-auth method security
-. - oauth2, spring-cloud
-. - authorization-server, resource-server, jwt...
+. mongo userDetailService, standart password encoder (done link:../../tree/reactive-repository-user-details/[here])
+. fix deprecated password encoder (todo)
+. pre-auth method security (todo)
+. oauth2, spring-cloud (todo)
+. authorization-server, resource-server, jwt... (todo)
