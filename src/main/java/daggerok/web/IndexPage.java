@@ -23,7 +23,7 @@ import static java.time.LocalDateTime.now;
 public class IndexPage {
 
   final UserRepository users;
-  final PasswordEncoder encoder; // 4
+  final PasswordEncoder encoder;
 
   @GetMapping("/")
   public Rendering index() {
@@ -40,7 +40,7 @@ public class IndexPage {
                // ${owner.name}-${user.username}
                .map(p -> format("%s-%s", p.getT1().getName(), p.getT2().getUsername()))
                .map(r -> new User().setUsername(r))
-               .map(u -> u.setPassword(encoder.encode(u.getUsername()))) // 5
+               .map(u -> u.setPassword(encoder.encode(u.getUsername())))
                .map(u -> u.setLastModifiedAt(now()))
                .flatMap(users::save)
                .then(Mono.just("redirect:/"));

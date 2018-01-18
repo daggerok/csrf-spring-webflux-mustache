@@ -1,6 +1,8 @@
 package daggerok.web;
 
+import daggerok.users.User;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,7 +30,7 @@ public class SecurityAdvice {
   }
 
   @ModelAttribute("currentUser")
-  Mono<Principal> currentUser(final Mono<Principal> currentUser) {
+  Mono<User> currentUser(@AuthenticationPrincipal final Mono<User> currentUser) {
     return currentUser;
   }
 }

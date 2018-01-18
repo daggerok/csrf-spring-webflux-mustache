@@ -29,12 +29,12 @@ public class WebappApplication {
 
   @Bean
   InitializingBean initializingBean(final UserRepository users,
-                                    final PasswordEncoder encoder) { // 6
+                                    final PasswordEncoder encoder) {
 
     return () -> users.deleteAll()
                       .thenMany(v -> Flux.just("user", "admin")
                                          .map(user -> new User().setUsername(user)
-                                                                .setPassword(encoder.encode(user)) // 7
+                                                                .setPassword(encoder.encode(user))
                                                                 .setLastModifiedAt(now()))
                                          .flatMap(users::save)
                                          .subscribe(u -> log.info("created user: {}", u.getUsername())))

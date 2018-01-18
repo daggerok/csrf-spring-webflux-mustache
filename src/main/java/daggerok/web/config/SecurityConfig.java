@@ -33,7 +33,6 @@ public class SecurityConfig {
     return http.build();
   }
 
-  // 1
   @Bean PasswordEncoder passwordEncoder() {
     return new StandardPasswordEncoder();
   }

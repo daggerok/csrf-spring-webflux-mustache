@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-// 3
 @Service
 @RequiredArgsConstructor
 public class ReactiveRepositoryUserDetailsService implements ReactiveUserDetailsService {
