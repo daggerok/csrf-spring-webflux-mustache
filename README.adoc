@@ -2,11 +2,19 @@
 
 This repository is contains example application using spring boot 2.0, webflux, spring security 5, reactive mongodb and mustache template engine
 
-.build
+.maven
 ----
-./mvnw
+./mvnw clean spring-boot:run
+----
 
-open http://127.0.0.1
+.gradle
+----
+./gradlew clean bootRun
+----
+
+.test
+----
+open http://127.0.0.1:8080
 # user / user
 # adin / admin
 
