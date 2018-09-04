@@ -1,11 +1,6 @@
 buildscript {
   ext {
-    springBootVersion = "2.0.0.M7"
-  }
-  repositories {
-    mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
+    springBootVersion = '2.0.4.RELEASE'
   }
   dependencies {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
@@ -13,46 +8,43 @@ buildscript {
 }
 
 plugins {
-  id "java"
-  id "idea"
-  id "maven"
-  id "eclipse"
+  id 'java'
+  id 'idea'
+  id 'maven'
+  id 'eclipse'
+  id 'io.franzbecker.gradle-lombok' version '1.14'
 }
 
-apply plugin: "org.springframework.boot"
-apply plugin: "io.spring.dependency-management"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
-group = "daggerok"
-version = "0.0.1"
+group = 'daggerok'
+version = '0.0.2'
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
   mavenCentral()
-  maven { url "https://repo.spring.io/snapshot" }
-  maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
-  compile("org.springframework.boot:spring-boot-starter-actuator")
-  compile("org.springframework.boot:spring-boot-starter-mustache")
-  compile("org.springframework.boot:spring-boot-starter-webflux")
-  compile("org.springframework.boot:spring-boot-starter-security")
-  compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
-  compile("de.flapdoodle.embed:de.flapdoodle.embed.mongo")
+  compile('org.springframework.boot:spring-boot-starter-actuator')
+  compile('org.springframework.boot:spring-boot-starter-mustache')
+  compile('org.springframework.boot:spring-boot-starter-webflux')
+  compile('org.springframework.boot:spring-boot-starter-security')
+  compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+  compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
 
-  compile("org.webjars:webjars-locator:0.32-1")
-  compile("org.webjars:materializecss:0.100.2")
-  compile("org.webjars:material-design-icons:3.0.1")
-  compile("org.webjars:jquery:3.2.1")
-  compile("org.webjars:hammerjs:2.0.8")
+  compile('org.webjars:webjars-locator:0.32-1')
+  compile('org.webjars:materializecss:0.100.2')
+  compile('org.webjars:material-design-icons:3.0.1')
+  compile('org.webjars:jquery:3.2.1')
+  compile('org.webjars:hammerjs:2.0.8')
 
-  runtime("org.springframework.boot:spring-boot-devtools")
-  compileOnly("org.projectlombok:lombok")
-  testCompileOnly("org.projectlombok:lombok")
+  runtime('org.springframework.boot:spring-boot-devtools')
 
-  testCompile("org.springframework.security:spring-security-test")
-  testCompile("org.springframework.boot:spring-boot-starter-test")
-  testCompile("io.projectreactor:reactor-test")
+  testCompile('org.springframework.security:spring-security-test')
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+  testCompile('io.projectreactor:reactor-test')
 }
 
-defaultTasks "clean", "build"
+defaultTasks 'clean', 'build'
